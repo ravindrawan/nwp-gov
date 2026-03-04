@@ -125,7 +125,7 @@ $links = [
     'A' => [
         ['name' => ['si' => 'ආණ්ඩුකාරවර කාර්යාලය', 'en' => 'Governor\'s Office', 'ta' => 'ஆளுநர் அலுவலகம்'], 'url' => 'https://governor.nw.gov.lk'],
         ['name' => ['si' => 'පළාත් සභා ලේකම් කාර්යාලය', 'en' => 'PC Secretariat', 'ta' => 'மாகாண சபை செயலகம்'], 'url' => 'https://pcsec.nw.gov.lk'],
-        ['name' => ['si' => 'රාජ්‍ය සේවා කොමිෂන් සභාව', 'en' => 'Public Service Commission', 'ta' => 'அரச சேவை ஆணைக்குழு'], 'url' => 'https://ppsc.nw.gov.lk'],
+        ['name' => ['si' => 'රාජ්‍ය සේවා කොමිෂන් සභාව', 'en' => 'Public Service Commission', 'ta' => 'அரச சேவை ஆணைக்குழு'], 'url' => 'https://psc.nw.gov.lk'],
         ['name' => ['si' => 'ප්‍රධාන ලේකම් කාර්යාලය', 'en' => 'Chief Secretary\'s Office', 'ta' => 'பிரதம செயலாளர் அலுவலகம்'], 'url' => 'https://cs.nw.gov.lk'],
         ['name' => ['si' => 'පළාත් භාණ්ඩාගාරය', 'en' => 'Provincial Treasury', 'ta' => 'மாகாண திறைசேரி'], 'url' => 'https://treasury.nw.gov.lk'],
         ['name' => ['si' => 'පුහුණු අංශය (MDTU)', 'en' => 'Training Division', 'ta' => 'பயிற்சிப் பிரிவு'], 'url' => 'https://mdtu.nw.gov.lk'],
@@ -456,4 +456,5 @@ $links = [
         }
     </script>
 </body>
+
 </html>
