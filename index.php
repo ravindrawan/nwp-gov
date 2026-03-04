@@ -151,7 +151,7 @@ $links = [
         ['name' => ['si' => 'පළාත් පාලන දෙපාර්තමේන්තුව', 'en' => 'Dept. of Local Government', 'ta' => 'உள்ளூராட்சி திணைக்களம்'], 'url' => 'https://dolgnwp.lk'],
         ['name' => ['si' => 'පළාත් ආදායම් දෙපාර්තමේන්තුව', 'en' => 'Dept. of Revenue', 'ta' => 'வருமானத் திணைக்களம்'], 'url' => 'http://prorevdept.nw.gov.lk'],
         ['name' => ['si' => 'මාර්ග සංවර්ධන දෙපාර්තමේන්තුව', 'en' => 'Dept. of Road Development', 'ta' => 'வீதி அபிவிருத்தி திணைக்களம்'], 'url' => 'https://prdd.nw.gov.lk'],
-        ['name' => ['si' => 'සමාජ සේවා දෙපාර්තමේන්තුව', 'en' => 'Dept. of Social Services', 'ta' => 'சமூக சேவைகள் திணைக்களம்'], 'url' => 'https://www.socialdept.nw.gov.lk'],
+        ['name' => ['si' => 'සමාජ සේවා දෙපාර්තමේන්තුව', 'en' => 'Dept. of Social Services', 'ta' => 'சமூக சேவைகள் திணைக்களம்'], 'url' => 'https://socialdept.nw.gov.lk'],
     ],
     'D' => [
         ['name' => ['si' => 'සමූපකාර සේවක කොමිෂන් සභාව', 'en' => 'Co-op Employees Commission', 'ta' => 'கூட்டுறவு ஊழியர் ஆணைக்குழு'], 'url' => 'https://coopempcomm.nw.gov.lk'],
@@ -458,4 +458,5 @@ $links = [
 </body>
 
 </html>
+
 
