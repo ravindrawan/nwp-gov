@@ -141,16 +141,20 @@ $links = [
         ['name' => ['si' => 'කෘෂිකර්ම දෙපාර්තමේන්තුව', 'en' => 'Dept. of Agriculture', 'ta' => 'விவசாய திணைக்களம்'], 'url' => 'https://agridep-wp-north-western-province-council-production-3.apps.red-k8s.akaza.lk'],
         ['name' => ['si' => 'සත්ව නිෂ්පාදන හා සෞඛ්‍ය දෙපාර්තමේන්තුව', 'en' => 'Dept. of Animal Production', 'ta' => 'கால்நடை உற்பத்தி திணைக்களம்'], 'url' => 'https://aphdept.nw.gov.lk'],
         ['name' => ['si' => 'ආයුර්වේද දෙපාර්තමේන්තුව', 'en' => 'Dept. of Ayurveda', 'ta' => 'ஆயுர்வேத திணைக்களம்'], 'url' => 'https://ayurdept.nw.gov.lk'],
-        ['name' => ['si' => 'සමූපකාර සංවර්ධන දෙපාර්තමේන්තුව', 'en' => 'Dept. of Co-operative Development', 'ta' => 'கூட்டுறவு அபிவிருத்தி திணைக்களம்'], 'url' => 'https://coopdept.nw.gov.lk'],
+        ['name' => ['si' => 'සමූපකාර සංවර්ධන දෙපාර්තමේන්තුව', 'en' => 'Dept. of Co-operative Development', 'ta' => 'கூட்டுறவு அபிவிருத்தி திணைக்களம்'], 'url' => 'https://coopnw.lk'],
         ['name' => ['si' => 'අධ්‍යාපන දෙපාර්තමේන්තුව', 'en' => 'Dept. of Education', 'ta' => 'கல்வித் திணைக்களம்'], 'url' => 'https://nwpedu.lk'],
         ['name' => ['si' => 'ඉංජිනේරු දෙපාර්තමේන්තුව', 'en' => 'Dept. of Engineering', 'ta' => 'பொறியியல் திணைக்களம்'], 'url' => 'https://engdept.nw.gov.lk'],
         ['name' => ['si' => 'සෞඛ්‍ය දෙපාර්තමේන්තුව', 'en' => 'Dept. of Health', 'ta' => 'சுகாதாரத் திணைக்களம்'], 'url' => 'https://healthdept.nw.gov.lk'],
-        ['name' => ['si' => 'නිවාස හා ඉදිකිරීම් දෙපාර්තමේන්තුව', 'en' => 'Dept. of Housing', 'ta' => 'வீட்டுவசதி திணைக்களம்'], 'url' => 'https://dohc-wp-north-western-province-council-production-3.apps.red-k8s.akaza.lk'],
+        ['name' => ['si' => 'නිවාස හා ඉදිකිරීම් දෙපාර්තමේන්තුව', 'en' => 'Dept. of Housing', 'ta' => 'வீட்டுவசதி திணைக்களம்'], 'url' => 'https://housedep-north-western-province-council-production-3.apps.red-k8s.akaza.lk'],
         ['name' => ['si' => 'කර්මාන්ත සංවර්ධන දෙපාර්තමේන්තුව', 'en' => 'Dept. of Industries', 'ta' => 'கைத்தொழில் அபிவிருத்தி திணைக்களம்'], 'url' => 'https://indep.nw.gov.lk'],
+        ['name' => ['si' => 'අභ්‍යන්තර විගණන දෙපාර්තමේන්තුව', 'en' => 'Dept. of Internal Audit', 'ta' => 'உள் தணிக்கை துறை '], 'url' => 'https://interauditdep.nw.gov.lk'],
         ['name' => ['si' => 'වාරිමාර්ග දෙපාර්තමේන්තුව', 'en' => 'Dept. of Irrigation', 'ta' => 'நீர்ப்பாசனத் திணைக்களம்'], 'url' => 'https://irridept.nw.gov.lk'],
+        ['name' => ['si' => 'ඉඩම් කොමසාරිස් දෙපාර්තමේන්තුව', 'en' => 'Dept. of Land Commissioner', 'ta' => ' நில ஆணையர் துறை'], 'url' => 'https://landdept.nw.gov.lk'],
         ['name' => ['si' => 'පළාත් පාලන දෙපාර්තමේන්තුව', 'en' => 'Dept. of Local Government', 'ta' => 'உள்ளூராட்சி திணைக்களம்'], 'url' => 'https://dolgnwp.lk'],
-        ['name' => ['si' => 'පළාත් ආදායම් දෙපාර්තමේන්තුව', 'en' => 'Dept. of Revenue', 'ta' => 'வருமானத் திணைக்களம்'], 'url' => 'http://prorevdept.nw.gov.lk'],
+        ['name' => ['si' => 'පරිවාස හා ළමාරක්ෂක සේවා දෙපාර්තමේන්තුව', 'en' => 'Dept. of Probation and Childcare', 'ta' => 'நன்னடத்தை மற்றும் குழந்தை பராமரிப்பு துறை'], 'url' => 'https://probcc.nw.gov.lk'],
+        ['name' => ['si' => 'පළාත් ආදායම් දෙපාර්තමේන්තුව', 'en' => 'Dept. of Revenue', 'ta' => 'வருமானத் திணைக்களம்'], 'url' => 'https://prorevdept.nw.gov.lk'],
         ['name' => ['si' => 'මාර්ග සංවර්ධන දෙපාර්තමේන්තුව', 'en' => 'Dept. of Road Development', 'ta' => 'வீதி அபிவிருத்தி திணைக்களம்'], 'url' => 'https://prdd.nw.gov.lk'],
+        ['name' => ['si' => 'ග්‍රාම සංවර්ධන දෙපාර්තමේන්තුව', 'en' => 'Dept. of Rural Development', 'ta' => 'ஊரக வளர்ச்சித் துறை'], 'url' => 'https://rural-web-north-western-province-council-production-3.apps.red-k8s.akaza.lk'],
         ['name' => ['si' => 'සමාජ සේවා දෙපාර්තමේන්තුව', 'en' => 'Dept. of Social Services', 'ta' => 'சமூக சேவைகள் திணைக்களம்'], 'url' => 'https://socialdept.nw.gov.lk'],
     ],
     'D' => [
@@ -163,12 +167,14 @@ $links = [
         ['name' => ['si' => 'මානව සම්පත් සංවර්ධන අධිකාරිය', 'en' => 'HR Development Authority', 'ta' => 'மனித வள அபிவிருத்தி அதிகாரசபை'], 'url' => 'https://hrda.nw.gov.lk'],
         ['name' => ['si' => 'පරිසර අධිකාරිය (PEA)', 'en' => 'Provincial Environmental Authority', 'ta' => 'மாகாண சுற்றாடல் அதிகாரசபை'], 'url' => 'https://pea.nw.gov.lk'],
         ['name' => ['si' => 'මාර්ගස්ථ මගී ප්‍රවාහන අධිකාරිය', 'en' => 'Road Passenger Transport Authority', 'ta' => 'வீதி பயணிகள் போக்குவரத்து அதிகாரசபை'], 'url' => 'https://rpta.nw.gov.lk'],
+		
     ],
     'F' => [
         ['name' => ['si' => 'පුරවැසි ලියාපදිංචි පද්ධතිය', 'en' => 'Citizen Registration System', 'ta' => 'பிரஜைகள் பதிவு முறைமை'], 'url' => 'https://meetme.nw.gov.lk'],
         ['name' => ['si' => 'විනිවිද ප්‍රමාණ පත්‍ර (BOQ)', 'en' => 'BOQ Citizen Portal', 'ta' => 'BOQ பிரஜை போர்டல்'], 'url' => 'https://boq.nw.gov.lk'],
         ['name' => ['si' => 'භූගෝලීය තොරතුරු පද්ධතිය (GIS)', 'en' => 'Geo-Information System', 'ta' => 'புவியியல் தகவல் அமைப்பு'], 'url' => 'https://geoprovision.nw.gov.lk'],
         ['name' => ['si' => 'කළමනාකරණ තොරතුරු පද්ධතිය (MIS)', 'en' => 'Management Info System', 'ta' => 'மேலாண்மை தகவல் அமைப்பு'], 'url' => 'https://mis.nw.gov.lk'],
+        ['name' => ['si' => 'පළාත් සභාවේ වාහන වෙන්කරගැනීමේ පද්ධතිය (VFBMS)', 'en' => 'Vehicle Fleet & Booking Management', 'ta' => 'மாகாண சபை வாகன முன்பதிவு முறை'], 'url' => 'https://vehicle-nwp-north-western-province-council-production-3.apps.red-k8s.akaza.lk'],
     ]
 ];
 ?>
@@ -458,5 +464,4 @@ $links = [
 </body>
 
 </html>
-
 
