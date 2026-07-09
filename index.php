@@ -344,7 +344,7 @@ $links = [
                 <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-wider">Contact |  සම්බන්ධීකරණය</h4>
                 <ul class="space-y-3 text-xs">
                     <li class="flex items-start italic"><i class="fas fa-map-marker-alt mr-3 mt-1"></i> <?php echo $t['address']; ?></li>
-                    <li><i class="fas fa-phone mr-3"></i> +94 37 2237169</li>
+                    <li><i class="fas fa-phone mr-3"></i> +94 37 2231769</li>
                     <li><i class="fas fa-envelope mr-3"></i> csnwp@sltnet.lk</li>
                 </ul>
             </div>
