@@ -45,11 +45,26 @@ async function loadTuesdayDrops() {
     const container = document.getElementById('drops-container');
     if (!container) return;
 
+    // Show spinner
+    container.innerHTML = `
+        <div class="col-12 text-center py-5">
+            <div class="spinner-border text-warning" role="status"></div>
+            <p class="cyber-font text-orange mt-3">LOADING CLINIC SERVICES...</p>
+        </div>
+    `;
+
     try {
         const res = await fetch('api/booking.php?action=get_drops');
-        const json = await res.json();
+        const text = await res.text();
 
-        if (json.success && json.data.length > 0) {
+        let json;
+        try {
+            json = JSON.parse(text);
+        } catch (parseErr) {
+            throw new Error("Server returned non-JSON output. " + (text.length < 120 ? text : text.substring(0, 120) + "..."));
+        }
+
+        if (json.success && Array.isArray(json.data) && json.data.length > 0) {
             container.innerHTML = json.data.map(drop => `
                 <div class="col-md-6 col-lg-3">
                     <div class="drop-card" onclick="selectDropItem(${drop.id}, '${escapeHtml(drop.title)}', '${escapeHtml(drop.title_si || drop.title)}')">
@@ -78,9 +93,42 @@ async function loadTuesdayDrops() {
                 selectEl.innerHTML = '<option value="">-- සේවාව තෝරන්න (Select Repair Service) --</option>' +
                     json.data.map(drop => `<option value="${drop.id}">${escapeHtml(drop.title_si || drop.title)} [${escapeHtml(drop.category)}]</option>`).join('');
             }
+        } else {
+            const errMsg = json.message || "පද්ධතියේ සේවා ලැයිස්තුව හමු නොවීය (Empty Drops).";
+            showServiceLoadError(container, errMsg);
         }
     } catch (err) {
         console.error('Failed to load drops:', err);
+        showServiceLoadError(container, err.message);
+    }
+}
+
+function showServiceLoadError(container, detailMsg) {
+    container.innerHTML = `
+        <div class="col-12 py-3 text-center">
+            <div class="cyber-card border-danger text-start d-inline-block max-w-700 p-4" style="background: rgba(35, 10, 10, 0.95); max-width: 650px; margin: 0 auto;">
+                <div class="d-flex align-items-center gap-2 mb-2 text-danger">
+                    <i class="fas fa-exclamation-triangle fs-4"></i>
+                    <h5 class="cyber-font mb-0 text-white">සේවා ලැයිස්තුව ලෝඩ් කිරීමට නොහැකි විය (Database Connection Error)</h5>
+                </div>
+                <p class="text-white small mb-2">සර්වර් Database එකට සම්බන්ධ වීමේ දෝෂයක් පවතී. Database setup එක සම්පූර්ණ කර ඇති බව පරීක්ෂා කරන්න.</p>
+                <div class="bg-dark p-2 rounded mb-3 border border-secondary">
+                    <code class="text-warning small word-break-all">${escapeHtml(detailMsg)}</code>
+                </div>
+                <div class="d-flex gap-2 justify-content-end">
+                    <a href="setup_db.php" target="_blank" class="btn btn-sm btn-cyber-outline">
+                        <i class="fas fa-database me-1"></i> Database Setup Run කරන්න
+                    </a>
+                    <button onclick="loadTuesdayDrops()" class="btn btn-sm btn-cyber-primary">
+                        <i class="fas fa-sync me-1"></i> නැවත උත්සාහ කරන්න (Retry)
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    const selectEl = document.getElementById('drop_id');
+    if (selectEl) {
+        selectEl.innerHTML = '<option value="">-- සේවාවන් ලෝඩ් වී නැත (Database Connection Error) --</option>';
     }
 }
 
