@@ -1,6 +1,7 @@
 <?php
 /**
- * Database Connection Manager - Fixed Hardcoded for OpenShift
+ * Database Connection Manager - Tuesday Drop Cyber Application
+ * Dual Mode: MySQL (OpenShift/Local) with automatic SQLite fallback
  */
 
 class Database {
@@ -9,13 +10,13 @@ class Database {
     private $driver = 'mysql';
 
     private function __construct() {
-        $host     = 'meetmedb';
-        $port     = '3306';
-        $dbName   = 'clinik_db';
-        $username = 'root';
+        $host     = getenv('DB_HOST') ?: 'meetmedb';
+        $port     = getenv('DB_PORT') ?: '3306';
+        $dbName   = getenv('DB_NAME') ?: 'clinik_db';
         
-        // OpenShift Environment password හෝ default empty
-        $password = getenv('MYSQL_ROOT_PASSWORD') ?: (getenv('MYSQL_PASSWORD') ?: '');
+        // OpenShift Configured Credentials
+        $username = getenv('DB_USER') ?: 'root';
+        $password = getenv('DB_PASSWORD') ?: 'RaviRootPassword';
 
         $options = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -24,21 +25,24 @@ class Database {
         ];
 
         try {
+            // 1. Root User ලෙස Connect වීමට උත්සාහ කිරීම
             $dsn = "mysql:host=$host;port=$port;dbname=$dbName;charset=utf8mb4";
             $this->pdo = new PDO($dsn, $username, $password, $options);
             $this->driver = 'mysql';
         } catch (PDOException $e) {
-            // Password නැතුව බැරි වුණොත්, password එකක් නැතුව ආයේ try කරන්න
             try {
-                $dsn = "mysql:host=$host;port=$port;dbname=$dbName;charset=utf8mb4";
-                $this->pdo = new PDO($dsn, $username, '', $options);
+                // 2. Fallback: admin User ලෙස Connect වීමට උත්සාහ කිරීම
+                $this->pdo = new PDO($dsn, 'admin', 'RaviDb@2026', $options);
                 $this->driver = 'mysql';
             } catch (PDOException $e2) {
-                // Connection එක පත්තුවුණේ නැත්නම් Exact error එක Screen එකේ පෙන්වන්න
-                die("<div style='padding:20px; background:#f8d7da; color:#721c24; font-family:sans-serif;'>
-                        <h3>Database Connection Failed</h3>
-                        <p><b>Error Details:</b> " . htmlspecialchars($e2->getMessage()) . "</p>
-                     </div>");
+                // 3. Fallback to SQLite if MySQL fail
+                $dataDir = __DIR__ . '/../data';
+                if (!is_dir($dataDir)) {
+                    mkdir($dataDir, 0777, true);
+                }
+                $sqlitePath = $dataDir . '/tuesday_booking.db';
+                $this->pdo = new PDO("sqlite:" . $sqlitePath, null, null, $options);
+                $this->driver = 'sqlite';
             }
         }
     }
