@@ -1,7 +1,7 @@
 <?php
 /**
  * Database Connection Manager - Tuesday Drop Cyber Application
- * Dual Mode: MySQL with automatic SQLite fallback
+ * Dual Mode: MySQL (OpenShift/Local) with automatic SQLite fallback
  */
 
 class Database {
@@ -10,31 +10,26 @@ class Database {
     private $driver = 'mysql';
 
     private function __construct() {
-        $host = '127.0.0.1';
-        $port = '3306';
-        $dbName = 'tuesday_booking_db';
-        $username = 'root';
-        $password = '';
+        // OpenShift Environment variables හෝ Default OpenShift DB values
+        $host     = getenv('DB_HOST') ?: 'meetmedb';
+        $port     = getenv('DB_PORT') ?: '3306';
+        $dbName   = getenv('DB_NAME') ?: 'clinik_db';
+        $username = getenv('DB_USER') ?: 'root';
+        $password = getenv('DB_PASSWORD') !== false ? getenv('DB_PASSWORD') : '';
 
         $options = [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_EMULATE_PREPARES => false,
+            PDO::ATTR_EMULATE_PREPARES   => false,
         ];
 
         try {
-            // Try connecting to MySQL
-            $dsn = "mysql:host=$host;port=$port;charset=utf8mb4";
-            $tempPdo = new PDO($dsn, $username, $password, $options);
-            
-            // Create database if not exists
-            $tempPdo->exec("CREATE DATABASE IF NOT EXISTS `$dbName` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
-            $tempPdo->exec("USE `$dbName` ");
-            
-            $this->pdo = $tempPdo;
+            // OpenShift/MySQL Database එකට Direct Connect වීම
+            $dsn = "mysql:host=$host;port=$port;dbname=$dbName;charset=utf8mb4";
+            $this->pdo = new PDO($dsn, $username, $password, $options);
             $this->driver = 'mysql';
         } catch (Exception $e) {
-            // Fallback to SQLite if MySQL connection fails
+            // MySQL සම්බන්ධතාවය අසාර්ථක වුවහොත් SQLite භාවිතයට මාරු වීම
             $dataDir = __DIR__ . '/../data';
             if (!is_dir($dataDir)) {
                 mkdir($dataDir, 0777, true);
