@@ -19,7 +19,7 @@ try {
     $action = $_GET['action'] ?? $_POST['action'] ?? '';
 
     switch ($action) {
-        
+
         // 1. Fetch Computer Clinic Repair Services
         case 'get_drops':
             $stmt = $db->query("SELECT * FROM tuesday_drops ORDER BY id ASC");
