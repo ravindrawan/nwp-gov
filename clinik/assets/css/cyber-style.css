@@ -1,0 +1,426 @@
+/* ==========================================================================
+   TUESDAY DROP HQ - ROYAL ORANGE & OBSIDIAN BLACK GAMING THEME STYLESHEET
+   WITH ISKOOLA POTA (ඉස්කෝලපොත) SINHALA TYPOGRAPHY
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600;700;800&family=Noto+Serif+Sinhala:wght@400;600;700;800&family=Orbitron:wght@500;700;800;900&family=Rajdhani:wght@500;600;700&display=swap');
+
+:root {
+    --bg-dark: #08070a; /* Void Deep Black */
+    --bg-surface: #140d08; /* Obsidian Dark Orange Black */
+    --bg-card: rgba(20, 13, 8, 0.95); /* Deep Charcoal Orange Card */
+    --cyber-orange: #ff6600; /* Royal Cyber Orange */
+    --cyber-amber: #ff9900; /* Glowing Amber Gold */
+    --cyber-crimson: #ff2a00; /* Crimson Flame */
+    --cyber-gold: #ffe600; /* Neon Gold */
+    --cyber-cyan: #00f3ff; /* Electric Cyan Secondary */
+    --cyber-green: #00ff88; /* Verification Green */
+    --text-main: #ffffff;
+    --text-muted: #cbd5e1; /* Clear High-Contrast Text */
+    --border-orange: rgba(255, 102, 0, 0.5);
+    --glow-orange: 0 0 25px rgba(255, 102, 0, 0.6);
+    --glow-amber: 0 0 20px rgba(255, 153, 0, 0.5);
+}
+
+/* Color Utilities */
+.text-orange { color: var(--cyber-orange) !important; }
+.text-cyan { color: var(--cyber-cyan) !important; }
+.text-gold { color: var(--cyber-gold) !important; }
+.text-green { color: var(--cyber-green) !important; }
+.text-amber { color: var(--cyber-amber) !important; }
+
+/* Base resets & Iskoola Pota Font */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Iskoola Pota', 'IskoolaPota', 'Noto Serif Sinhala', 'Abhaya Libre', 'Rajdhani', serif;
+    font-size: 1.08rem;
+    line-height: 1.65;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 15% 15%, rgba(255, 102, 0, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(255, 153, 0, 0.14) 0%, transparent 45%),
+        linear-gradient(rgba(255, 102, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 102, 0, 0.05) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    min-height: 100vh;
+}
+
+/* Scanline Effect */
+.scanline-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%);
+    background-size: 100% 4px;
+    z-index: 9999;
+    opacity: 0.12;
+}
+
+/* Headings with Iskoola Pota & Orbitron */
+h1, h2, h3, h4, h5, .cyber-font {
+    font-family: 'Orbitron', 'Iskoola Pota', 'IskoolaPota', 'Noto Serif Sinhala', serif;
+    letter-spacing: 1.2px;
+}
+
+/* High Contrast Muted Text */
+.text-muted {
+    color: #cbd5e1 !important;
+}
+
+.extra-small {
+    font-size: 0.84rem;
+    letter-spacing: 0.5px;
+}
+
+/* Cyber Royal Navbar */
+.cyber-navbar {
+    background: rgba(12, 9, 7, 0.97);
+    border-bottom: 2px solid var(--cyber-orange);
+    box-shadow: 0 4px 25px rgba(255, 102, 0, 0.3);
+    backdrop-filter: blur(12px);
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.brand-badge {
+    background: linear-gradient(135deg, var(--cyber-orange), var(--cyber-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+    font-size: 1.4rem;
+}
+
+/* Royal Orange Gaming Buttons */
+.btn-cyber-primary {
+    background: linear-gradient(135deg, #ff6600, #ff9900);
+    color: #000000 !important;
+    font-family: 'Orbitron', 'Iskoola Pota', 'IskoolaPota', 'Noto Serif Sinhala', serif;
+    font-weight: 900;
+    padding: 12px 26px;
+    border: none;
+    clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    box-shadow: 0 0 18px rgba(255, 102, 0, 0.6);
+}
+
+.btn-cyber-primary:hover {
+    background: linear-gradient(135deg, #ffe600, #ff3300);
+    color: #000000 !important;
+    box-shadow: 0 0 30px rgba(255, 102, 0, 0.9);
+    transform: translateY(-2px);
+}
+
+.btn-cyber-outline {
+    background: rgba(255, 102, 0, 0.08);
+    color: var(--cyber-orange) !important;
+    border: 2px solid var(--cyber-orange);
+    font-family: 'Orbitron', 'Iskoola Pota', 'IskoolaPota', 'Noto Serif Sinhala', serif;
+    font-weight: 700;
+    padding: 10px 20px;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-cyber-outline:hover {
+    background: var(--cyber-orange);
+    color: #000000 !important;
+    box-shadow: var(--glow-orange);
+}
+
+/* Obsidian Black & Royal Orange HUD Cards */
+.cyber-card {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-orange);
+    border-radius: 8px;
+    padding: 24px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+}
+
+.cyber-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 14px; height: 14px;
+    border-top: 3px solid var(--cyber-orange);
+    border-left: 3px solid var(--cyber-orange);
+}
+
+.cyber-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0; width: 14px; height: 14px;
+    border-bottom: 3px solid var(--cyber-orange);
+    border-right: 3px solid var(--cyber-orange);
+}
+
+.cyber-card:hover {
+    border-color: var(--cyber-orange);
+    box-shadow: var(--glow-orange);
+    transform: translateY(-4px);
+}
+
+/* Hero Section */
+.hero-header {
+    padding: 50px 0 35px;
+    text-align: center;
+    position: relative;
+}
+
+.hero-title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(255, 102, 0, 0.7);
+    margin-bottom: 12px;
+}
+
+.hero-subtitle {
+    color: var(--cyber-amber);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Tuesday Countdown Timer Box */
+.timer-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.timer-box {
+    background: rgba(255, 102, 0, 0.12);
+    border: 1.5px solid var(--cyber-orange);
+    padding: 12px 20px;
+    min-width: 95px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: inset 0 0 15px rgba(255, 102, 0, 0.2);
+}
+
+.timer-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--cyber-orange);
+    text-shadow: 0 0 12px rgba(255, 102, 0, 0.6);
+}
+
+.timer-label {
+    font-size: 0.85rem;
+    color: #e2e8f0;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Item Drop Showcase Cards */
+.drop-card {
+    background: rgba(20, 13, 8, 0.96);
+    border: 1.5px solid rgba(255, 102, 0, 0.4);
+    border-radius: 12px;
+    padding: 22px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.drop-card:hover {
+    border-color: var(--cyber-orange);
+    box-shadow: 0 0 25px rgba(255, 102, 0, 0.5);
+    transform: translateY(-5px);
+}
+
+.drop-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, var(--cyber-orange), var(--cyber-crimson));
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
+}
+
+.drop-icon {
+    font-size: 2.8rem;
+    color: var(--cyber-orange);
+    margin-bottom: 15px;
+}
+
+/* High Contrast Form Inputs & Dropdowns with Iskoola Pota */
+.cyber-input {
+    background: #110b07 !important;
+    border: 1.5px solid rgba(255, 102, 0, 0.5) !important;
+    color: #ffffff !important;
+    padding: 14px 18px;
+    border-radius: 6px;
+    width: 100%;
+    font-family: 'Iskoola Pota', 'IskoolaPota', 'Noto Serif Sinhala', 'Abhaya Libre', serif;
+    font-size: 1.08rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.cyber-input::placeholder {
+    color: #94a3b8 !important;
+    opacity: 1;
+}
+
+.cyber-input:focus {
+    outline: none;
+    border-color: var(--cyber-orange) !important;
+    box-shadow: var(--glow-orange);
+    background: #1a100a !important;
+}
+
+/* Select Option Items */
+.cyber-input option {
+    background-color: #140d08 !important;
+    color: #ffffff !important;
+    padding: 12px;
+    font-size: 1.05rem;
+    font-family: 'Iskoola Pota', 'IskoolaPota', 'Noto Serif Sinhala', serif;
+}
+
+.cyber-label {
+    font-family: 'Orbitron', 'Iskoola Pota', 'IskoolaPota', 'Noto Serif Sinhala', serif;
+    font-size: 0.95rem;
+    color: var(--cyber-orange);
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+    letter-spacing: 0.8px;
+}
+
+/* Holographic Digital Pass Ticket */
+.ticket-pass {
+    background: linear-gradient(135deg, #120b06 0%, #1e1108 100%);
+    border: 2px solid var(--cyber-orange);
+    border-radius: 16px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 0 40px rgba(255, 102, 0, 0.5);
+    overflow: hidden;
+}
+
+.ticket-pass::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: linear-gradient(45deg, transparent 45%, rgba(255, 102, 0, 0.1) 50%, transparent 55%);
+    animation: holoShimmer 6s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes holoShimmer {
+    0% { transform: translate(-30%, -30%) rotate(0deg); }
+    100% { transform: translate(30%, 30%) rotate(360deg); }
+}
+
+.ticket-header {
+    border-bottom: 2px dashed var(--cyber-orange);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.booking-code-badge {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: var(--cyber-gold);
+    letter-spacing: 2px;
+    text-shadow: 0 0 12px rgba(255, 230, 0, 0.6);
+}
+
+.qr-box {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    display: inline-block;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+/* Scanner Frame */
+.scanner-frame {
+    border: 2px dashed var(--cyber-orange);
+    border-radius: 12px;
+    padding: 10px;
+    background: #000000;
+    position: relative;
+    overflow: hidden;
+}
+
+#reader video {
+    width: 100% !important;
+    border-radius: 8px;
+}
+
+/* Status Badges */
+.badge-status {
+    padding: 6px 14px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 800;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+.status-pending {
+    background: rgba(255, 153, 0, 0.25);
+    color: var(--cyber-amber);
+    border: 1px solid var(--cyber-amber);
+    text-shadow: 0 0 5px rgba(255, 153, 0, 0.3);
+}
+
+.status-confirmed {
+    background: rgba(0, 255, 136, 0.25);
+    color: var(--cyber-green);
+    border: 1px solid var(--cyber-green);
+    box-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
+}
+
+/* High Contrast Table Styling */
+.table-dark {
+    --bs-table-bg: #110b07 !important;
+    --bs-table-striped-bg: #18100a !important;
+    color: #ffffff !important;
+}
+
+.table-dark th {
+    color: var(--cyber-orange) !important;
+    font-weight: 700;
+}
+
+.table-dark td {
+    color: #f1f5f9 !important;
+}
