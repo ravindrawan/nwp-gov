@@ -3,6 +3,7 @@
  * Computer Clinic - North Western Province (Powered by Digital Division)
  * Official Booking & Dynamic QR Token System
  */
+session_start();
 require_once __DIR__ . '/config/db.php';
 ?>
 <!DOCTYPE html>
@@ -40,15 +41,38 @@ require_once __DIR__ . '/config/db.php';
                 <a href="#booking-section" class="btn-cyber-primary btn-sm d-none d-sm-inline-flex">
                     <i class="fas fa-plus-circle me-1"></i> BOOK CLINIC PASS
                 </a>
-                <a href="verify.php" class="btn-cyber-outline btn-sm">
+                <button type="button" onclick="openProtectedPage('verify.php')" class="btn-cyber-outline btn-sm">
                     <i class="fas fa-qrcode me-1"></i> SCAN / VERIFY PASS
-                </a>
-                <a href="admin.php" class="btn btn-sm btn-outline-secondary text-white" title="Admin Dashboard">
+                </button>
+                <button type="button" onclick="openProtectedPage('admin.php')" class="btn btn-sm btn-outline-secondary text-white" title="Admin Dashboard">
                     <i class="fas fa-user-shield"></i>
-                </a>
+                </button>
             </div>
         </div>
     </nav>
+
+    <!-- Admin Access Password Modal -->
+    <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content bg-dark text-white border-warning">
+                <div class="modal-header border-secondary py-2">
+                    <h6 class="modal-title text-warning font-monospace"><i class="fas fa-lock me-2"></i>ADMIN AUTHENTICATION</h6>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="authForm" onsubmit="verifyPassword(event)">
+                        <input type="hidden" id="targetPage">
+                        <div class="mb-3">
+                            <label for="adminPass" class="form-label extra-small text-muted">Enter Admin Password:</label>
+                            <input type="password" class="form-control bg-black text-warning border-secondary" id="adminPass" placeholder="Password" required autofocus>
+                            <div class="invalid-feedback extra-small text-danger mt-1" id="authError">වැරදි මුරපදයක්! (Invalid Password)</div>
+                        </div>
+                        <button type="submit" class="btn btn-warning btn-sm w-100 fw-bold">UNLOCK ACCESS</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section Banner -->
     <header class="hero-header container">
@@ -132,7 +156,6 @@ require_once __DIR__ . '/config/db.php';
         </div>
 
         <div class="row g-4" id="drops-container">
-            <!-- Loaded dynamically via JavaScript app.js -->
             <div class="col-12 text-center py-5">
                 <div class="spinner-border text-warning" role="status"></div>
                 <p class="cyber-font text-orange mt-3">LOADING CLINIC SERVICES...</p>
@@ -271,5 +294,41 @@ require_once __DIR__ . '/config/db.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/cyber-audio.js"></script>
     <script src="assets/js/app.js"></script>
+
+    <!-- Admin Authentication Script -->
+    <script>
+        let authModalInstance = null;
+
+        function openProtectedPage(targetPage) {
+            document.getElementById('targetPage').value = targetPage;
+            document.getElementById('adminPass').value = '';
+            document.getElementById('adminPass').classList.remove('is-invalid');
+            
+            if (!authModalInstance) {
+                authModalInstance = new bootstrap.Modal(document.getElementById('authModal'));
+            }
+            authModalInstance.show();
+        }
+
+        function verifyPassword(e) {
+            e.preventDefault();
+            const pass = document.getElementById('adminPass').value;
+            const target = document.getElementById('targetPage').value;
+            const passInput = document.getElementById('adminPass');
+
+            if (pass === "Ravi@2026") {
+                // Set session flag via fetch and redirect
+                fetch('api/set_auth.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password: pass })
+                }).then(() => {
+                    window.location.href = target;
+                });
+            } else {
+                passInput.classList.add('is-invalid');
+            }
+        }
+    </script>
 </body>
 </html>
